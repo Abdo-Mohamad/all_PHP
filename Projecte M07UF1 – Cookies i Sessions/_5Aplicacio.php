@@ -15,6 +15,14 @@ if ($tempsTranscorregut >= TEMPSINACTIU) { //Si la sessió ha caducat, han passa
 } else { //Si no ha caducat...
     $_SESSION["ultimAcces"] = time(); //Actualitzem la data per tornar a començar
 }
+
+
+if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
+    echo "Cookie named '' is not set!";
+} else {
+    echo "Cookie 'user' is " . $_COOKIE['USUARI'] . " set!<br>";
+    echo "Value is: " . $_COOKIE['PASSWORD'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +34,6 @@ if ($tempsTranscorregut >= TEMPSINACTIU) { //Si la sessió ha caducat, han passa
     <body>
         <p>Benvinguda <strong><?php echo $_SESSION["usuari"]; ?></strong></p>
         <p><a href="_5Logout.php">Tanca la sessió</a></p>
-        <p><a href="_5inici.html">Torna a l'inici</a></p>
+        <p><a href="_5inici.php">Torna a l'inici</a></p>
     </body>
 </html>

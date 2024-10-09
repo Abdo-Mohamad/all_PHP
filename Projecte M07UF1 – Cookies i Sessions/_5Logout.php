@@ -13,6 +13,6 @@
 </head>
     <body>
         <h3>Sessió finalitzada</h3>
-        <a href="_5inici.html">Tornar a l'inici</a>
+        <a href="_5inici.php">Tornar a l'inici</a>
     </body>
 </html>
