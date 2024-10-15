@@ -17,7 +17,7 @@
 </head>
     <body>
         <h3>La sessió ha caducat!!!</h3>
-        <a href="_5inici.html">Tornar a l'inici</a>
+        <a href="_5inici.php">Tornar a l'inici</a>
     </body>
 </html>
 
