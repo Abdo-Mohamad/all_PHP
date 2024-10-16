@@ -21,12 +21,7 @@ if (isset($_SESSION["ultimAcces"])) {
 }
 
 // Verificar si las cookies existen
-
-
 // Definir usuario y contraseña válidos
-
-
-
 if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
     echo " No exstie los cookies guardada";
 } else {

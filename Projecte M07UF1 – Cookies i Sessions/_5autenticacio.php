@@ -15,6 +15,12 @@ if ($_POST["usuari"] == USUARI && $_POST["contrasenya"] == PASSWORD) { //Si l'au
     //Guardem les dades de l'usuari autenticat en la sessió
     $_SESSION["usuari"] = $_POST["usuari"];
     $_SESSION["contrasenya"] = $_POST["contrasenya"];
+    
+   
+
+/*     echo $_SESSION["email"];
+    echo $_SESSION["fecha"];
+    echo $_SESSION["genero"]; */
 
     //Mostrem la pàgina de l'aplicació
     header("Location: _5Aplicacio.php");
