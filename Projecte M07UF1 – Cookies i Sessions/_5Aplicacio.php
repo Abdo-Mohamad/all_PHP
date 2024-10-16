@@ -51,6 +51,9 @@ if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
 
     <p><a href="_5Logout.php">Tanca la sessió</a></p>
     <p><a href="_5inici.php">Torna a l'inici</a></p>
+    <form method="post" action="_5formularioAdicional.php">
+        <input type="submit" name="formulario" class="button" value="Ver dato" />
+    </form>
 </body>
 
 </html>

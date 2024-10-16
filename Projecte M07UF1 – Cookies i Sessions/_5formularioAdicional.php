@@ -20,9 +20,9 @@ if (isset($_POST['enviar_formulario'])) {
     $_SESSION["tel"] = $_POST["tel"];
     $_SESSION["genero"] = $_POST["genero"];
 
-    echo "Formulario enviado. Nombre: " . $_SESSION["genero"];
-} elseif ($mostrarFormulario == false) {
-    echo "Formulario enviado. Nombre: " . $_SESSION["genero"];
+    echo "Formulario enviado. Nombre: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "hola");
+} elseif (!$mostrarFormulario) {
+    echo "Formulario enviado. Nombre: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "hola");
 }
 
 ?>
@@ -42,7 +42,9 @@ if (isset($_POST['enviar_formulario'])) {
     <form method="post" action="">
         <input type="submit" name="modificar_formulario" value="Modificar datos">
     </form>
-
+    <form method="post" action="_5Aplicacio.php">
+        <input type="submit" name="Aplicacio" class="button" value="Aplicacio" />
+    </form>
     <!-- Formulario que se muestra u oculta basado en la variable PHP -->
     <?php if ($mostrarFormulario): ?>
         <form method="post" action="">
@@ -69,6 +71,7 @@ if (isset($_POST['enviar_formulario'])) {
             <input type="submit" name="enviar_formulario" value="Enviar">
         </form>
     <?php endif; ?>
+
 
 </body>
 
