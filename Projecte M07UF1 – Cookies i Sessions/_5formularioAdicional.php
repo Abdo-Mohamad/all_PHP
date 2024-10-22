@@ -7,6 +7,7 @@ $mostrarFormulario = false;
 if (isset($_POST['modificar_formulario'])) {
     $mostrarFormulario = true;
 }
+  include '_5Cabecera.php';
 
 /* if (isset($_SESSION["email"])){
     echo "Formulario enviado. Nombre: ". $_SESSION["genero"];
@@ -20,9 +21,14 @@ if (isset($_POST['enviar_formulario'])) {
     $_SESSION["tel"] = $_POST["tel"];
     $_SESSION["genero"] = $_POST["genero"];
 
-    echo "Formulario enviado. Nombre: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "hola");
+    echo "Formulario enviado. Email: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No  hay datos").'<br>';
+    echo "Formulario enviado. Telefono: " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No  hay datos").'<br>';
+    echo "Formulario enviado. Edada: " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No  hay datos").'<br>';
 } elseif (!$mostrarFormulario) {
-    echo "Formulario enviado. Nombre: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "hola");
+   
+    echo "Formulario enviado. Email: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No  hay datos").'<br>';
+    echo "Formulario enviado. Telefono: " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No  hay datos").'<br>';
+    echo "Formulario enviado. Edada: " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No  hay datos").'<br>';
 }
 
 ?>

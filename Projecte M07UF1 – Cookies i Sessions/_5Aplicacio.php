@@ -22,12 +22,12 @@ if (isset($_SESSION["ultimAcces"])) {
 
 // Verificar si las cookies existen
 // Definir usuario y contraseña válidos
-if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
+/* if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
     echo " No exstie los cookies guardada";
 } else {
     echo "Cookie 'user' es " . $_COOKIE['USUARI'] . "<br>";
     echo "El valor de la cookie 'PASSWORD' es: " . $_COOKIE['PASSWORD'] . "<br>";
-}
+} */
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +39,7 @@ if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
 </head>
 
 <body>
+    <?php  include '_5Cabecera.php';?>
     <p>Benvinguda <strong><?php
                             // Verificar si el usuario de sesión está definido antes de mostrarlo
                             echo isset($_SESSION["usuari"]) ? $_SESSION["usuari"] : "";
