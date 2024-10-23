@@ -41,6 +41,7 @@ session_start();
     <label for="checkbox"> Guardar cookies</label>
     <input type="checkbox" name="checkbox" id="checkbox" /> <br /><br />
     <input type="submit" name="enviar" value="Accedir" />
+    <a href="./_5add_surfboard.php"> ver producto</a>
   </form>
 </body>
 
