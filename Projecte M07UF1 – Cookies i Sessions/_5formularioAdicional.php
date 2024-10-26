@@ -8,11 +8,6 @@ if (isset($_POST['modificar_formulario'])) {
     $mostrarFormulario = true;
 }
   include '_5Cabecera.php';
-
-/* if (isset($_SESSION["email"])){
-    echo "Formulario enviado. Nombre: ". $_SESSION["genero"];
-}
- */
 // Si el formulario ha sido enviado
 if (isset($_POST['enviar_formulario'])) {
     // Procesar el formulario aquí
