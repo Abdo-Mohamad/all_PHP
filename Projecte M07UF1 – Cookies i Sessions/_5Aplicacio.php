@@ -44,6 +44,7 @@ if (isset($_SESSION["ultimAcces"])) {
 
     <p><a href="_5Logout.php">Tanca la sessió</a></p>
     <p><a href="_5inici.php">Torna a l'inici</a></p>
+    <a href="./_5add_surfboard.php"> ver producto</a>
     <form method="post" action="_5formularioAdicional.php">
         <input type="submit" name="formulario" class="button" value="Ver dato" />
     </form>

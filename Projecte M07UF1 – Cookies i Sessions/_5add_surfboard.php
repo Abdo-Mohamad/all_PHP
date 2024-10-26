@@ -10,7 +10,8 @@ if (!isset($_SESSION['productos'])) {
 }
 
 // Función para agregar o actualizar un producto
-function agregarOActualizarProducto($nombreTablaSurf, $fotoTablaSurf, $cantidad) {
+function agregarOActualizarProducto($nombreTablaSurf, $fotoTablaSurf, $cantidad)
+{
     $productoExistente = false;
 
     // Recorrer la lista de productos para buscar si el producto ya existe
@@ -35,7 +36,8 @@ function agregarOActualizarProducto($nombreTablaSurf, $fotoTablaSurf, $cantidad)
 }
 
 // Función para reducir la cantidad de un producto o eliminarlo si llega a 0
-function reducirProducto($index) {
+function reducirProducto($index)
+{
     if (isset($_SESSION['productos'][$index])) {
         // Disminuir la cantidad si es mayor que 0
         if ($_SESSION['productos'][$index]['cantidad'] > 1) {
@@ -87,7 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
             <label for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad" name="cantidad" min="1" required><br>
 
-            <input type="submit" value="Añadir Producto">
+            <input type="submit" value="Añadir Producto"> <br>
+            <a href="./_5Aplicacio.php">aplicacion</a>
         </form>
     <?php } ?>
 
