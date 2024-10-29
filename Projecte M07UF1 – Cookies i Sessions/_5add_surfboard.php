@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Surfboard Products</title>
 </head>
 
@@ -84,13 +85,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
             <input type="text" id="nombre" name="nombre" required><br>
 
             <label for="foto">URL of Surfboard Photo:</label>
-            <input type="text" id="foto" name="foto"><br>
+            <input type="text" id="foto" name="foto" value="https://liquidshredder.com/wp-content/uploads/2020/04/Yellow-Pro-300x300.jpg"><br>
 
             <label for="cantidad">Quantity:</label>
             <input type="number" id="cantidad" name="cantidad" min="1" required><br>
 
             <input type="submit" value="Add Product"> <br>
-            <a href="./_5Aplicacio.php">Application</a>
+            <p> <a class="link-button" href="./_5Aplicacio.php">Application</a></p>
         </form>
     <?php } ?>
 
@@ -101,14 +102,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
         <?php if (!empty($_SESSION['productos'])): ?>
             <?php foreach ($_SESSION['productos'] as $index => $producto): ?>
                 <li>
-                    <img src="<?php echo $producto['foto']; ?>" alt="<?php echo $producto['nombre']; ?>" width="100">
+                    <img src="<?php echo $producto['foto']; ?>" alt="<?php echo $producto['nombre']; ?>">
                     <strong><?php echo $producto['nombre']; ?></strong> - Quantity: <?php echo $producto['cantidad']; ?>
                     <!-- Button to reduce the quantity -->
-                    <form method="POST" action="" style="display:inline;">
+
+                    <form method="POST" action="" class="container">
                         <input type="hidden" name="producto_index" value="<?php echo $index; ?>">
                         <input type="hidden" name="reducir" value="1">
-                        <input type="submit" value="-1">
+                        <input type="submit" value="-1" id="descount">
                     </form>
+
                 </li>
             <?php endforeach; ?>
         <?php else: ?>
@@ -116,7 +119,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
         <?php endif; ?>
     </ul>
 
-    <a href="./_5inici.php">Return to login</a>
+    <p> <a href="./_5inici.php" class="link-button">Return to login</a>
+    <p>
 
 </body>
 

@@ -7,6 +7,7 @@ session_start();
 
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Home</title>
 </head>
 
@@ -19,7 +20,7 @@ session_start();
     <label for="checkbox"> Save cookies</label>
     <input type="checkbox" name="checkbox" id="checkbox" /> <br /><br />
     <input type="submit" name="enviar" value="Log in" />
-    <a href="./_5add_surfboard.php"> View product</a>
+    <a href="./_5add_surfboard.php"  class="link-button"> View product</a>
   </form>
 </body>
 

@@ -7,12 +7,16 @@ session_unset();
 ?>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" type="text/css" href="style.css">
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <title>End Session</title>
 </head>
+
 <body>
     <h3>Session ended</h3>
-    <a href="_5inici.php">Return to the start</a>
+    <p> <a href="_5inici.php" class="link-button">Return to the start</a></p>
 </body>
+
 </html>

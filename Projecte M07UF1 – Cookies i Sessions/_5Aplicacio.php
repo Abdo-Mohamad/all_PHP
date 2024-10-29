@@ -27,6 +27,7 @@ if (isset($_SESSION["ultimAcces"])) {
 
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css"> 
     <title>Application</title>
 </head>
 
@@ -42,9 +43,9 @@ if (isset($_SESSION["ultimAcces"])) {
         <input type="submit" name="eliminar" class="button" value="Delete cookies" />
     </form>
 
-    <p><a href="_5Logout.php">Logout</a></p>
-    <p><a href="_5inici.php">Return to home</a></p>
-    <a href="./_5add_surfboard.php"> View product</a>
+    <p><a href="_5Logout.php"  class="link-button">Logout</a></p>
+    <p><a href="_5inici.php"  class="link-button">Return to home</a></p>
+    <p><a href="./_5add_surfboard.php"  class="link-button"> View product</a><p>
     <form method="post" action="_5formularioAdicional.php">
         <input type="submit" name="formulario" class="button" value="View data" />
     </form>

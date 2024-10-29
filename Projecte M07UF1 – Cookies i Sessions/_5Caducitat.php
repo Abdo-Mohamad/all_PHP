@@ -11,7 +11,7 @@ session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
-
+<link rel="stylesheet" type="text/css" href="style.css"> 
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <title>Close Session</title>
@@ -19,7 +19,7 @@ session_destroy();
 
 <body>
     <h3>The session has expired!!!</h3>
-    <a href="_5inici.php">Return to the homepage</a>
+    <a href="_5inici.php" class="link-button">Return to the homepage</a>
 </body>
 
 </html>

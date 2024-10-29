@@ -16,7 +16,7 @@ if (isset($_POST['enviar_formulario'])) {
     $_SESSION["tel"] = $_POST["tel"];
     $_SESSION["genero"] = $_POST["genero"];
 
-    echo "Form submitted. Email: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No data available") . '<br>';
+    echo "<p>Form submitted. Email: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No data available") . ' </p><br>';
     echo "Form submitted. Phone: " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No data available") . '<br>';
     echo "Form submitted. Age: " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No data available") . '<br>';
 } elseif (!$mostrarFormulario) {
@@ -33,6 +33,7 @@ if (isset($_POST['enviar_formulario'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
     <title>Show/Hide Form with PHP</title>
 </head>
 
