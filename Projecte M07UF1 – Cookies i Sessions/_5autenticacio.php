@@ -1,35 +1,23 @@
 <?php
-define("USUARI", "abdo"); //Definim nom d'usuari vàlid
-define("PASSWORD", "1234"); //Definim contrsenya vàlida
+define("USUARI", "abdo"); // Define valid username
+define("PASSWORD", "1234"); // Define valid password
 
+if ($_POST["usuari"] == USUARI && $_POST["contrasenya"] == PASSWORD) { // If authentication is correct...
+    session_start(); // Start session.
 
-if ($_POST["usuari"] == USUARI && $_POST["contrasenya"] == PASSWORD) { //Si l'autenticació és correcte...
-    session_start(); //Iniciem sessió.
-    if (isset($_POST["checkbox"])) {
-        setcookie("PASSWORD", $_POST["contrasenya"], time() + (3600));
-        setcookie("USUARI", $_POST["usuari"], time() + (3600));
+    if (isset($_POST["checkbox"])) { // If the "Remember me" checkbox is checked
+        setcookie("PASSWORD", $_POST["contrasenya"], time() + 3600); // Set a cookie for the password, valid for one hour
+        setcookie("USUARI", $_POST["usuari"], time() + 3600); // Set a cookie for the username, also valid for one hour
     }
 
-    $_SESSION["ultimAcces"] = time(); //Inicialitzem la data d'inici de sessió
+    $_SESSION["ultimAcces"] = time(); // Initialize session start time
 
-    //Guardem les dades de l'usuari autenticat en la sessió
+    // Store authenticated user data in the session
     $_SESSION["usuari"] = $_POST["usuari"];
     $_SESSION["contrasenya"] = $_POST["contrasenya"];
-    
-   
 
-/*     echo $_SESSION["email"];
-    echo $_SESSION["fecha"];
-    echo $_SESSION["genero"]; */
-
-    //Mostrem la pàgina de l'aplicació
+    // Display the application page
     header("Location: _5Aplicacio.php");
-} else { //Si l'autenticació no és correcte...
-    header("location:_5inici.php"); //Retornem a la pàgina inicial.
+} else { // If authentication is incorrect...
+    header("Location: _5inici.php"); // Return to the initial page.
 }
-
-
-/* else {
-    setcookie("PASSWORD", $_POST["contrasenya"], time() - (3600));
-    setcookie("USUARI", $_POST["usuari"], time() - (3600));
-} */

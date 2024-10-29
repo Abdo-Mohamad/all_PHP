@@ -1,19 +1,19 @@
 <?php
-// Iniciar sesión
-//session_start();
+// Start session (commented out, so session is not started here)
+// session_start();
 
 if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
-    echo " No exstie los cookies guardada";
+    echo "No saved cookies found"; // Check if cookies "PASSWORD" and "USUARI" are not set
 } else {
-    echo "Cookie 'user' es " . $_COOKIE['USUARI'] . "<br>";
-    echo "El valor de la cookie 'PASSWORD' es: " . $_COOKIE['PASSWORD'] . "<br>";
+    echo "Cookie 'user' is " . $_COOKIE['USUARI'] . "<br>"; // Display the "USUARI" cookie value
+    echo "The value of the cookie 'PASSWORD' is: " . $_COOKIE['PASSWORD'] . "<br>"; // Display the "PASSWORD" cookie value
 }
 
-// Establece la zona horaria de tu ubicación
-date_default_timezone_set('Europe/Madrid'); // Cambia a tu zona horaria si es diferente
+// Set the timezone to your location
+date_default_timezone_set('Europe/Madrid'); // Change to your timezone if different
 
-// Obtiene el día, la hora, minutos y segundos actuales
+// Get the current date, hour, minute, and second
 $fecha_actual = date('d-m-Y H:i:s');
 
-// Muestra la fecha y hora actual
-echo "La fecha y hora actual es: " . $fecha_actual . '<br>';
+// Display the current date and time
+echo "The current date and time is: " . $fecha_actual . '<br>';

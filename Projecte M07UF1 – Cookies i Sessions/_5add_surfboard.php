@@ -1,30 +1,30 @@
 <?php
-session_start(); // Iniciar la sesión
+session_start(); // Start the session
 
-// Incluir la cabecera
+// Include the header
 include '_5Cabecera.php';
 
-// Inicializar la lista de productos si no existe
+// Initialize the product list if it doesn't exist
 if (!isset($_SESSION['productos'])) {
     $_SESSION['productos'] = [];
 }
 
-// Función para agregar o actualizar un producto
+// Function to add or update a product
 function agregarOActualizarProducto($nombreTablaSurf, $fotoTablaSurf, $cantidad)
 {
     $productoExistente = false;
 
-    // Recorrer la lista de productos para buscar si el producto ya existe
+    // Iterate through the product list to see if the product already exists
     foreach ($_SESSION['productos'] as &$producto) {
         if ($producto['nombre'] === $nombreTablaSurf) {
-            // Si el producto existe, actualizamos su cantidad
+            // If the product exists, update its quantity
             $producto['cantidad'] += $cantidad;
             $productoExistente = true;
             break;
         }
     }
 
-    // Si el producto no existe, lo agregamos como nuevo
+    // If the product doesn't exist, add it as new
     if (!$productoExistente) {
         $nuevaTabla = [
             'nombre' => $nombreTablaSurf,
@@ -35,23 +35,23 @@ function agregarOActualizarProducto($nombreTablaSurf, $fotoTablaSurf, $cantidad)
     }
 }
 
-// Función para reducir la cantidad de un producto o eliminarlo si llega a 0
+// Function to reduce a product’s quantity or remove it if it reaches 0
 function reducirProducto($index)
 {
     if (isset($_SESSION['productos'][$index])) {
-        // Disminuir la cantidad si es mayor que 0
+        // Decrease the quantity if it’s greater than 0
         if ($_SESSION['productos'][$index]['cantidad'] > 1) {
             $_SESSION['productos'][$index]['cantidad'] -= 1;
         } else {
-            // Eliminar el producto si la cantidad llega a 0
+            // Remove the product if the quantity reaches 0
             unset($_SESSION['productos'][$index]);
-            // Reorganizar los índices del array
+            // Reorganize array indexes
             $_SESSION['productos'] = array_values($_SESSION['productos']);
         }
     }
 }
 
-// Si se envía el formulario de añadir producto, agregar o actualizar el producto
+// If the add product form is submitted, add or update the product
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nombre'])) {
     $nombre = $_POST['nombre'];
     $foto = $_POST['foto'];
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nombre'])) {
     agregarOActualizarProducto($nombre, $foto, $cantidad);
 }
 
-// Si se envía el formulario para reducir la cantidad, llamar a la función
+// If the reduce quantity form is submitted, call the function
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
     $index = $_POST['producto_index'];
     reducirProducto($index);
@@ -67,43 +67,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Productos de Tablas de Surf</title>
+    <title>Surfboard Products</title>
 </head>
 
 <body>
     <?php if (isset($_COOKIE["PASSWORD"]) && isset($_COOKIE["USUARI"])) { ?>
-        <h1>Añadir Producto de Tabla de Surf</h1>
+        <h1>Add Surfboard Product</h1>
 
-        <!-- Formulario para añadir un producto -->
+        <!-- Form to add a product -->
         <form method="POST" action="">
-            <label for="nombre">Nombre de la tabla de surf:</label>
+            <label for="nombre">Surfboard Name:</label>
             <input type="text" id="nombre" name="nombre" required><br>
 
-            <label for="foto">URL de la foto de la tabla:</label>
+            <label for="foto">URL of Surfboard Photo:</label>
             <input type="text" id="foto" name="foto"><br>
 
-            <label for="cantidad">Cantidad:</label>
+            <label for="cantidad">Quantity:</label>
             <input type="number" id="cantidad" name="cantidad" min="1" required><br>
 
-            <input type="submit" value="Añadir Producto"> <br>
-            <a href="./_5Aplicacio.php">aplicacion</a>
+            <input type="submit" value="Add Product"> <br>
+            <a href="./_5Aplicacio.php">Application</a>
         </form>
     <?php } ?>
 
-    <h2>Productos Disponibles</h2>
+    <h2>Available Products</h2>
 
-    <!-- Lista de productos añadidos -->
+    <!-- List of added products -->
     <ul>
         <?php if (!empty($_SESSION['productos'])): ?>
             <?php foreach ($_SESSION['productos'] as $index => $producto): ?>
                 <li>
                     <img src="<?php echo $producto['foto']; ?>" alt="<?php echo $producto['nombre']; ?>" width="100">
-                    <strong><?php echo $producto['nombre']; ?></strong> - Cantidad: <?php echo $producto['cantidad']; ?>
-                    <!-- Botón para reducir la cantidad -->
+                    <strong><?php echo $producto['nombre']; ?></strong> - Quantity: <?php echo $producto['cantidad']; ?>
+                    <!-- Button to reduce the quantity -->
                     <form method="POST" action="" style="display:inline;">
                         <input type="hidden" name="producto_index" value="<?php echo $index; ?>">
                         <input type="hidden" name="reducir" value="1">
@@ -112,11 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
                 </li>
             <?php endforeach; ?>
         <?php else: ?>
-            <li>No hay productos añadidos todavía.</li>
+            <li>No products have been added yet.</li>
         <?php endif; ?>
     </ul>
 
-    <a href="./_5inici.php">volver a login</a>
+    <a href="./_5inici.php">Return to login</a>
 
 </body>
 

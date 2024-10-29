@@ -1,16 +1,16 @@
 <?php
 
-// Función que maneja el botón
+// Function that handles the button
 if (isset($_COOKIE['USUARI']) && isset($_COOKIE['PASSWORD'])) {
-    // Configurar cookies por una hora (o eliminarlas si deseas)
-    setcookie("PASSWORD", '', time() - 3600); // Elimina las cookies
+    // Set cookies for one hour (or delete them if desired)
+    setcookie("PASSWORD", '', time() - 3600); // Delete the cookies
     setcookie("USUARI", '', time() - 3600);
     
-    // Evita cualquier salida antes de la redirección
-    header("Location: _5Aplicacio.php"); // Redirigir a la página de caducidad
+    // Prevent any output before the redirect
+    header("Location: _5Aplicacio.php"); // Redirect to the expiration page
     exit();
 } else {
-    // Evita salida antes de header()
+    // Prevent output before header()
     header("Location: _5Aplicacio.php");
     exit();
 }
