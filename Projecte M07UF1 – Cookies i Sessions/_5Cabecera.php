@@ -3,10 +3,10 @@
 // session_start();
 
 if (!isset($_COOKIE["PASSWORD"]) || !isset($_COOKIE["USUARI"])) {
-    echo "No saved cookies found"; // Check if cookies "PASSWORD" and "USUARI" are not set
+    echo "No saved cookies found <br>"; // Check if cookies "PASSWORD" and "USUARI" are not set
 } else {
-    echo "Cookie 'user' is " . $_COOKIE['USUARI'] . "<br>"; // Display the "USUARI" cookie value
-    echo "The value of the cookie 'PASSWORD' is: " . $_COOKIE['PASSWORD'] . "<br>"; // Display the "PASSWORD" cookie value
+    echo "Your cookiees is saved " . $_COOKIE['USUARI'] . "<br>"; // Display the "USUARI" cookie value
+    //echo "The value of the cookie 'PASSWORD' is: " . $_COOKIE['PASSWORD'] . "<br>"; // Display the "PASSWORD" cookie value
 }
 
 // Set the timezone to your location

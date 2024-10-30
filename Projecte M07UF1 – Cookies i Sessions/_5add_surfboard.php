@@ -18,7 +18,7 @@ function agregarOActualizarProducto($nombreTablaSurf, $fotoTablaSurf, $cantidad)
     foreach ($_SESSION['productos'] as &$producto) {
         if ($producto['nombre'] === $nombreTablaSurf) {
             // If the product exists, update its quantity
-            $producto['cantidad'] += $cantidad;
+            $producto['cantidad'] = $cantidad;
             $productoExistente = true;
             break;
         }
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
             <input type="text" id="foto" name="foto" value="https://liquidshredder.com/wp-content/uploads/2020/04/Yellow-Pro-300x300.jpg"><br>
 
             <label for="cantidad">Quantity:</label>
-            <input type="number" id="cantidad" name="cantidad" min="1" required><br>
+            <input type="number" id="cantidad" name="cantidad"  required><br>
 
             <input type="submit" value="Add Product"> <br>
             <p> <a class="link-button" href="./_5Aplicacio.php">Application</a></p>
@@ -102,8 +102,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
         <?php if (!empty($_SESSION['productos'])): ?>
             <?php foreach ($_SESSION['productos'] as $index => $producto): ?>
                 <li>
+
                     <img src="<?php echo $producto['foto']; ?>" alt="<?php echo $producto['nombre']; ?>">
-                    <strong><?php echo $producto['nombre']; ?></strong> - Quantity: <?php echo $producto['cantidad']; ?>
+                    <p> <?php echo $producto['nombre']; ?></p> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <p> <?php echo "Quantity:" . $producto['cantidad']; ?></p>
+
                     <!-- Button to reduce the quantity -->
 
                     <form method="POST" action="" class="container">
@@ -121,7 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reducir'])) {
 
     <p> <a href="./_5inici.php" class="link-button">Return to login</a>
     <p>
-
 </body>
 
 </html>

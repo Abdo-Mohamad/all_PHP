@@ -16,14 +16,14 @@ if (isset($_POST['enviar_formulario'])) {
     $_SESSION["tel"] = $_POST["tel"];
     $_SESSION["genero"] = $_POST["genero"];
 
-    echo "<p>Form submitted. Email: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No data available") . ' </p><br>';
-    echo "Form submitted. Phone: " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No data available") . '<br>';
-    echo "Form submitted. Age: " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No data available") . '<br>';
+    echo "Your Email is: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No data available") . ' <br><br>';
+    echo "Your Phone Number is : " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No data available") . '<br><br>';
+    echo "You birthday : " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No data available") . '<br><br>';
 } elseif (!$mostrarFormulario) {
     // Display previously submitted data if the form is not shown
-    echo "Form submitted. Email: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No data available") . '<br>';
-    echo "Form submitted. Phone: " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No data available") . '<br>';
-    echo "Form submitted. Age: " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No data available") . '<br>';
+    echo "Your Email is: " . (isset($_SESSION["email"]) ? $_SESSION["email"] : "No data available") . '<br><br>';
+    echo "Your Phone Number is : " . (isset($_SESSION["tel"]) ? $_SESSION["tel"] : "No data available") . '<br><br>';
+    echo "You birthday : " . (isset($_SESSION["fecha"]) ? $_SESSION["fecha"] : "No data available") . '<br><br>';
 }
 ?>
 
